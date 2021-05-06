@@ -24,15 +24,10 @@ jobs:
       packages: write
 
     steps:
-      - name: List
-        run: ls
-        
+            
       - uses: actions/checkout@v2
 
-      - name: List
-        run: ls
-
-      - name: Build image and commit
+      - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
       
