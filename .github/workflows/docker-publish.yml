@@ -38,7 +38,7 @@ jobs:
       
       - name: Push to Dockerhub
         run: |
-          docker docker login -u etiennedaubanay -p ks76WNGWw25V6p8
+          docker login -u etiennedaubanay -p ks76WNGWw25V6p8
           docker push $IMAGE_NAME
 
  
