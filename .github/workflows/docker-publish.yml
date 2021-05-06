@@ -1,0 +1,44 @@
+name: Docker
+
+on:
+  push:
+    # Publish `main` as Docker `latest` image.
+    branches:
+      - main
+
+env:
+  # TODO: Change variable to your image's name.
+  IMAGE_NAME: etiennedaubanay/youtube-dl-test:latest
+
+jobs:
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  
+  push:
+
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: List
+        run: ls
+        
+      - uses: actions/checkout@v2
+
+      - name: List
+        run: ls
+
+      - name: Build image and commit
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+
+      
+      - name: Push to Dockerhub
+        run: |
+          docker login -u etiennedaubanay -p ks76WNGWw25V6p8
+          docker push $IMAGE_NAME
+
+ 
