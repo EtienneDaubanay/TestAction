@@ -11,20 +11,9 @@ env:
   IMAGE_NAME: etiennedaubanay/youtube-dl-test:latest
 
 jobs:
-  # Push image to GitHub Packages.
-  # See also https://docs.docker.com/docker-hub/builds/
-  
-  push:
-
+  build:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-
-    permissions:
-      contents: read
-      packages: write
-
-    steps:
-            
+    steps : 
       - uses: actions/checkout@v2
 
       - name: Build image
