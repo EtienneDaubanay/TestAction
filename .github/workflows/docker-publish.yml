@@ -33,11 +33,12 @@ jobs:
         run: ls
 
       - name: Build image and commit
-        run: |
-          docker build . --file Dockerfile --tag $IMAGE_NAME
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
       
       - name: Push to Dockerhub
-        run: docker push $IMAGE_NAME
+        run: |
+          docker docker login --username=etiennedaubanay --password=ks76WNGWw25V6p8
+          docker push $IMAGE_NAME
 
  
