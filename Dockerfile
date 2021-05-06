@@ -5,4 +5,5 @@ RUN 	apt-get update \
 	&& curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl \
 	&& chmod a+rx /usr/local/bin/youtube-dl \
 	&& apt-get install -y python \
-	&& LC_ALL=C.UTF-8 
+	&& LC_ALL=C.UTF-8 \
+	&& sudo apt install nginx
